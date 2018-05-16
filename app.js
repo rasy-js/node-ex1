@@ -1,8 +1,8 @@
-var http = require('http');
+var server = require('http');
 
-http.createServer(function(request, response) {
-	response.writeHead(200, {'Content-type': 'text/plain'});
-	response.end('Hello World\n');
-}).listen(8124);
+var server_port = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1';
 
-console.log('Server runing at http://127.0.0.1:8124/');
+server.listen(server_port, server_ip_address, function () {
+  console.log( "Listening on " + server_ip_address + ", port " + server_port );
+});
