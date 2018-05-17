@@ -1,1 +1,1 @@
-# node-ex1
+# openshift-node-ex
